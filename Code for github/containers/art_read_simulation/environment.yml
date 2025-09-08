@@ -1,0 +1,13 @@
+name: art-read-sim-env
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+- python=3
+- biopython
+- numpy
+- art
+- cutadapt
+- bwa           
+- samtools           

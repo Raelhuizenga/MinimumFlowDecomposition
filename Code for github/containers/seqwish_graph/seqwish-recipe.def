@@ -1,0 +1,22 @@
+Bootstrap: docker
+From: condaforge/miniforge3:latest
+
+%files
+    /tudelft.net/staff-umbrella/FlowDecomposition/containers/seqwish_graph/environment.yml /environment.yml
+
+%post
+    echo "Contents of /environment.yml:"
+    cat /environment.yml
+    # Update and install necessary packages
+    apt-get update && apt-get install -y tree time vim ncdu speedtest-cli build-essential
+
+    # Create the Conda environment
+    mamba env create --quiet --file /environment.yml
+    
+    # Clean up
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+    mamba clean --all -y
+
+    # Activate the environment in the container
+    echo '. "/opt/conda/etc/profile.d/conda.sh"' >> $SINGULARITY_ENVIRONMENT
+    echo 'conda activate seqwish-env' >> $SINGULARITY_ENVIRONMENT

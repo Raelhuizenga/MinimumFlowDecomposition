@@ -1,0 +1,9 @@
+name: savage-env
+channels:
+  - r
+  - defaults
+  - conda-forge
+  - bioconda
+dependencies:
+- python=2.7
+- savage

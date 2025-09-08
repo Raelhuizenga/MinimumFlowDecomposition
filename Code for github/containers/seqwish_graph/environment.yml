@@ -1,0 +1,15 @@
+name: seqwish-env
+channels:
+- conda-forge
+- bioconda
+- defaults
+dependencies:
+- python=3
+- numpy
+- minimap2
+- seqwish
+- graph-tool
+- kallisto
+- pandas
+- biopython 
+- seaborn
